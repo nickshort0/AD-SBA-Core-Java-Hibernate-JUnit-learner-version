@@ -43,6 +43,7 @@ class StudentServiceTest {
         Student student = studentService.getStudentByEmail("reema@gmail.com");
         assertThat(studentService.validateStudent(student.getEmail(), student.getPassword())).isEqualTo(true);
         assertThat(studentService.validateStudent(student.getEmail(), "wrong password!")).isEqualTo(false);
+        assertThat(studentService.validateStudent("wrongemail@gmail.net", "password")).isEqualTo(false);
     }
 
 }
